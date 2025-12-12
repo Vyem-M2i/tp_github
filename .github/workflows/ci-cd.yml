@@ -29,6 +29,7 @@ on:
 # Variables d’environnement globales
 env:
   NODE_VERSION: "20"
+  # DOCKER_IMAGE_NAME: vyem-m2i/tp_github
 
 jobs:
   # ===========================================
@@ -108,8 +109,8 @@ jobs:
           push: false
 
           tags: |
-            ghcr.io/${{ github.repository }}:latest
-            ghcr.io/${{ github.repository }}:v1.0.0-${{ github.run_number }}
+            ghcr.io/${{ github.repository | toLowerCase }}:latest
+            ghcr.io/${{ github.repository | toLowerCase }}:v1.0.0-${{ github.run_number }}
 
       # TODO: Push de l'image vers le registry
       - name: Push image vers Registry
